@@ -1,37 +1,35 @@
 package com.example;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-
-	public static void main(String[] args) {
+public static void main(String[]args) {
+	Scanner sc=new Scanner(System.in);
+	CurrentAccount c=new CurrentAccount();
+	SavingAccount s=new SavingAccount();
+	System.out.println("Choose Account Type");
+	System.out.println("1 Saving Account");
+	System.out.println("2 Currrent Account");
+	int n=sc.nextInt();
+	switch(n) {
+	case 1:
+		System.out.println("Enter account details,name,accno, bankname,orgname");
+		System.out.println();
+		String line1=sc.next();
+		String[] arr=line1.split(",");
 		
-		ItemTypeBo itemTypeBO=new ItemTypeBo();
-		Scanner sc=new Scanner(System.in);
-		System.out.println("enter the number of item type");
-		int n=sc.nextInt();
-		ItemType[] itemType=new ItemType[n];
-		if(n>=1&&n<=10) {
-			for(int i=0;i<n;i++) {
-				System.out.printf("enter the item type name");
-				System.out.println((i+1));
-				String name=sc.next();
-				System.out.println("enter the deposit number");
-				Double deposit=sc.nextDouble();
-				System.out.println("enter the cost per day");
-				Double costPerDay=sc.nextDouble();
-				itemType[i]=new ItemType(name,deposit,costPerDay);
-				itemTypeBO.add(itemType[i],itemType,i);
-			}
-			itemTypeBO.display(itemType);
-		}
-		System.out.println("enter the name of the item to be searched");
-		String search=sc.next();
-		itemTypeBO.search(search, itemType);
-		
-
+		s=new SavingAccount(arr[0],arr[1], arr[2],arr[3]);
+		s.display();
+		break;
+	case 2:
+		System.out.println("Enter Currentaccount details,tinNumber,accno1, bankname1,orgname1,no of seats");
+		String tinNumber=sc.next();
+		String accno1=sc.next();
+		String bankname1=sc.next();
+		String orgname1=sc.next();
+	c=new CurrentAccount(tinNumber,accno1, bankname1,orgname1);
+	c.display();
+	break;
 	}
-
 }
-
+}
