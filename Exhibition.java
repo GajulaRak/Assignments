@@ -1,22 +1,21 @@
 package com.example;
 
 public class Exhibition extends Event {
-	int noOfStall;
+private Integer noOfStalls;
+public Exhibition(String name, String detail, String ownerName, Integer noOfStalls) {
+	super(name, detail, ownerName);
+	this.noOfStalls = noOfStalls;
+}
 
-	public int getNoOfStall() {
-		return noOfStall;
-	}
+public Integer getNoOfStalls() {
+	return noOfStalls;
+}
 
-	public void setNoOfStall(int noOfStall) {
-		this.noOfStall = noOfStall;
-	}
-
-	public Exhibition(String name, String detail, String type, String ownerName, double costPerDay, int noOfStall) {
-		super(name, detail, type, ownerName, costPerDay);
-		this.noOfStall = noOfStall;
-	}
-
+public void setNoOfStalls(Integer noOfStalls) {
+	this.noOfStalls = noOfStalls;
+}
+public Double projectedRevenue(){
+	return (double) (noOfStalls*10000);
 	
-	
-
+}
 }
